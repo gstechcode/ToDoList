@@ -1,26 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <barra-navegacao v-model:navegar="rota"></barra-navegacao>
+  <div class="container mt-3">
+    <component :is="rota"></component>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import BarraNavegacao from '@/components/BarraNavegacao.vue'
+  import TarefasRouter from '@/rotas/TarefasRouter.vue'
+  import ConfiguracoesRouter from '@/rotas/ConfiguracoesRouter.vue'
+  import SobreRouter from '@/rotas/SobreRouter.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    BarraNavegacao,
+    TarefasRouter,
+    ConfiguracoesRouter,
+    SobreRouter
+  },
+  data: () => ({
+    rota: "TarefasRouter"
+  })
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+
 }
 </style>
